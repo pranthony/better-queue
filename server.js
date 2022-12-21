@@ -1,11 +1,19 @@
 // Require the framework and instantiate it
 import Queue from 'better-queue'
 import fastify from 'fastify'
+import { Form } from './conn.js'
 
 const app = fastify({logger: true})
+let newForm 
+
+
 const q = new Queue((batch, cb)=>{
   console.log(batch)
-  cb()
+  batch.forEach( async (form, index)=>{
+    newForm = Form(form)
+    await newForm.save()
+  })
+  setTimeout(cb, 10000)
 }, { batchSize: 2 })
 
 // Declare a route
