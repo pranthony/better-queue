@@ -1,0 +1,17 @@
+{
+  "name": "queue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon node server.js"
+  },
+  "dependencies": {
+    "better-queue": "^3.8.12",
+    "fastify": "^4.10.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
